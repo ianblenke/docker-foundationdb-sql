@@ -5,7 +5,8 @@ if [ ! -f /etc/foundationdb/foundationdb.conf ]; then
 fi
 
 if [ ! -f /etc/foundationdb/fdb.cluster ]; then
-    ADDR=$(grep $HOSTNAME /etc/hosts | cut -f1)
+    #ADDR=$(grep $HOSTNAME /etc/hosts | cut -f1)
+	ADDR=127.0.0.1
     echo "docker:$HOSTNAME@$ADDR:4500" >/etc/foundationdb/fdb.cluster
     # chown -R foundationdb:foundationdb /etc/foundationdb
     chmod 0644 /etc/foundationdb/fdb.cluster
